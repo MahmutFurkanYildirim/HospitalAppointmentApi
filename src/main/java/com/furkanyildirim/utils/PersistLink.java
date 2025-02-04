@@ -1,4 +1,4 @@
-package utils;
+package com.furkanyildirim.utils;
 
 public class PersistLink {
 
