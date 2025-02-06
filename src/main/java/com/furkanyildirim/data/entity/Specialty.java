@@ -13,26 +13,22 @@ import java.util.List;
 @AllArgsConstructor
 @ToString
 
-@Entity(name = "Patient")
-@Table(name = "patient")
-public class Patient implements Serializable {
-
+@Entity(name = "Specialty")
+@Table(name = "specialty")
+public class Specialty implements Serializable {
     // SERILESTIRME
     public static final Long serialVersionUID = 1L;
 
-    //patientID
+    //specialtyID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //patientInformation
+    //specialtyTitle
     @Column(name = "Name")
-    private String name;
-    @Column(name = "Email")
-    private String email;
+    private String title;
 
-    //patientAppointmentInfo
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private List<Appointment> appointments;
+    @OneToMany(mappedBy = "title", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Doctor> doctors;
 
 }
