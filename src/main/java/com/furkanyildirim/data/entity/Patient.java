@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 // LOMBOK
@@ -26,9 +27,25 @@ public class Patient implements Serializable {
     private Long id;
 
     //patientInformation
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
-    @Column(name = "Email")
+
+    @Column(name = "surname")
+    private String surname;
+
+    @Column(name = "birthdate")
+    private Date Birthdate;
+
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "height")
+    private Double height;
+
+    @Column(name = "weight")
+    private Integer weight;
+
+    @Column(name = "email")
     private String email;
 
     //patientAppointmentInfo
