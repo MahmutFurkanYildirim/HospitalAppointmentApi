@@ -13,7 +13,7 @@ public class OneTimeDTO implements Serializable{
     public static final Long serialVersionUID = 1L;
     private Long id;
     private Long doctorId;
-    private LocalDate day;
+    private LocalDate dayOff;
     private boolean isOnLeave;
     private List<OneTimeTimeBlockDTO> oneTimeTimeBlocks;
 }

@@ -24,9 +24,9 @@ public class Doctor implements Serializable {
     private Long id;
 
     //doctorInformation
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
-    @Column(name = "Surname")
+    @Column(name = "surname")
     private String surname;
 
     @ManyToOne
@@ -36,6 +36,10 @@ public class Doctor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "speciality")
     private Specialty title;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
     //doctorAppointmentList
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)

@@ -11,7 +11,7 @@ import java.util.List;
 public interface OneTimeRepository extends JpaRepository<OneTime, Long>{
     List<OneTime> findByDoctorId(Long doctorId);
 
-    List<OneTime> findByDay(LocalDate day);
+    List<OneTime> findByDayOff(LocalDate dayOff);
 
     List<OneTime> findByDoctorIdAndIsOnLeave(Long doctorId, boolean isOnLeave);
 }

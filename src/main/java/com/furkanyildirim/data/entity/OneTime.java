@@ -26,8 +26,8 @@ public class OneTime implements Serializable{
     @Column(name = "doctor_id", nullable = false)
     private Long doctorId;
 
-    @Column(name = "day", nullable = false)
-    private LocalDate day;
+    @Column(name = "day_off", nullable = false)
+    private LocalDate dayOff;
 
     @Column(name = "is_on_leave", nullable = false)
     private boolean isOnLeave;

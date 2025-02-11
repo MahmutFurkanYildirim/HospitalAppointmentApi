@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 // LOMBOK
@@ -32,7 +32,7 @@ public class Patient implements Serializable {
     private String surname;
 
     @Column(name = "birthdate")
-    private Date Birthdate;
+    private LocalDate birthdate;
 
     @Column(name = "phoneNumber")
     private String phoneNumber;
@@ -45,6 +45,10 @@ public class Patient implements Serializable {
 
     @Column(name = "email")
     private String email;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
     //patientAppointmentInfo
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
