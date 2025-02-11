@@ -4,30 +4,29 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 // LOMBOK
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @ToString
 
-@Entity(name = "Specialty")
-@Table(name = "specialty")
-public class Specialty implements Serializable {
+@Entity
+@Table(name = "doctors_department")
+public class DoctorsDepartment implements Serializable{
     private static final Long serialVersionUID = 1L;
 
-    //specialtyID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //specialtyTitle
-    @Column(name = "Name")
-    private String title;
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private Doctor doctor;
 
-    @OneToMany(mappedBy = "title", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Doctor> doctors;
-
+    @ManyToOne
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
 }

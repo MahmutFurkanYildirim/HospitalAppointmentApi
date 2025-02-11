@@ -17,9 +17,7 @@ import java.util.List;
 @Entity(name = "Patient")
 @Table(name = "patient")
 public class Patient implements Serializable {
-
-    // SERILESTIRME
-    public static final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     //patientID
     @Id

@@ -16,8 +16,7 @@ import java.util.List;
 @Entity(name = "Department")
 @Table(name = "department")
 public class Department implements Serializable {
-    // SERILESTIRME
-    public static final Long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     //departmentID
     @Id
@@ -31,6 +30,6 @@ public class Department implements Serializable {
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Doctor> doctors;
 
-//    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Appointment> appointments;
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Appointment> appointments;
 }

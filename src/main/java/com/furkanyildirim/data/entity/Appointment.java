@@ -2,10 +2,10 @@ package com.furkanyildirim.data.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 // LOMBOK
 @Getter
@@ -14,30 +14,41 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 
-@Entity(name = "Appointment")
+@Entity
 @Table(name = "appointment")
 public class Appointment implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    // SERILESTIRME
-    public static final Long serialVersionUID = 1L;
-
-    //appointmentID
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date", nullable = false)
     private LocalDateTime appointmentDate;
 
-    //patientID
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "department_id", nullable = false)
+    private Department department;
+
+    @Column(name = "detail")
+    private String detail;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", nullable = false)
+    private Doctor doctor;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    //doctorID
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
+    @JoinColumn(name = "status_id", nullable = false)
+    private Status status;
+
+    @Column(name = "prescription")
+    private String prescription;
+
+    @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AppointmentTime> appointmentTimes;
 
 }
