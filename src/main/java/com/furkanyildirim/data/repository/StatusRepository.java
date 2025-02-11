@@ -1,12 +1,13 @@
 package com.furkanyildirim.data.repository;
 
 import com.furkanyildirim.data.entity.Status;
+import com.furkanyildirim.role.EStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-import java.util.List;
 
 @Repository
 public interface StatusRepository extends JpaRepository<Status, Long>{
-    Status findByName(String name);
+    Optional<Status> findByName(EStatus name);
 }

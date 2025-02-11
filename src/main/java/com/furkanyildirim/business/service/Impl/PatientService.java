@@ -1,4 +1,4 @@
-package com.furkanyildirim.service;
+package com.furkanyildirim.business.service.Impl;
 
 import com.furkanyildirim.data.entity.Patient;
 import com.furkanyildirim.data.repository.PatientRepository;

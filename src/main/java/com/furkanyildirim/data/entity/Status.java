@@ -1,5 +1,6 @@
 package com.furkanyildirim.data.entity;
 
+import com.furkanyildirim.role.EStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,14 +17,15 @@ import java.util.List;
 @Entity
 @Table(name = "status")
 public class Status implements Serializable{
-    private static final long serialVersionUID = 1L;
+    private static final Long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "name", nullable = false, unique = true)
+    private EStatus name;
 
     @OneToMany(mappedBy = "status", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Appointment> appointments;

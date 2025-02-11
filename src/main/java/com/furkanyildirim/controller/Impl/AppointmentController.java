@@ -1,7 +1,7 @@
 package com.furkanyildirim.controller.Impl;
 
 import com.furkanyildirim.data.entity.Appointment;
-import com.furkanyildirim.service.AppointmentService;
+import com.furkanyildirim.business.service.Impl.AppointmentService;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;

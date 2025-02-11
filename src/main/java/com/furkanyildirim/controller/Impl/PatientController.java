@@ -2,7 +2,7 @@ package com.furkanyildirim.controller.Impl;
 
 
 import com.furkanyildirim.data.entity.Patient;
-import com.furkanyildirim.service.PatientService;
+import com.furkanyildirim.business.service.Impl.PatientService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
