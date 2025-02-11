@@ -1,10 +1,9 @@
 package com.furkanyildirim.data.repository;
 
-import com.furkanyildirim.data.entity.Specialty;
+import com.furkanyildirim.data.entity.Admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SpecialityRepository extends JpaRepository<Specialty, Long> {
-    Specialty findByTitle(String title);
+public interface AdminRepository extends JpaRepository<Admin, Long>{
 }
