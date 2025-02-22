@@ -14,4 +14,5 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     List<Patient> findBySurname(String surname);
 
     List<Patient> findByBirthdate(LocalDate birthdate);
+
 }
