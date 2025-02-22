@@ -1,8 +1,11 @@
 package com.furkanyildirim.controller.Impl;
 
 
+import com.furkanyildirim.business.dto.PatientDTO;
 import com.furkanyildirim.data.entity.Patient;
 import com.furkanyildirim.business.service.Impl.PatientService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,18 +20,18 @@ public class PatientController {
     }
 
     @GetMapping
-    public List<Patient> getAllPatients() {
-        return patientService.getAllPatients();
+    public Page<PatientDTO> getAllPatients(Pageable pageable) {
+        return patientService.getAllPatients(pageable);
     }
 
     @GetMapping("/{id}")
-    public Patient getPatientById(@PathVariable Long id) {
+    public PatientDTO getPatientById(@PathVariable Long id) {
         return patientService.getPatientById(id);
     }
 
     @PostMapping
-    public Patient createPatient(@RequestBody Patient patient) {
-        return patientService.createPatient(patient);
+    public PatientDTO createPatient(@RequestBody PatientDTO patientDTO) {
+        return patientService.createPatient(patientDTO);
     }
 
 }

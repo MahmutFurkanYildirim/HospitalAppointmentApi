@@ -1,7 +1,9 @@
 package com.furkanyildirim.controller.Impl;
 
-import com.furkanyildirim.data.entity.Appointment;
+import com.furkanyildirim.business.dto.AppointmentDTO;
 import com.furkanyildirim.business.service.Impl.AppointmentService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -16,10 +18,12 @@ public class AppointmentController {
     }
 
     @PostMapping
-    public Appointment createAppointment(
-            @RequestParam Long patientId,
-            @RequestParam Long doctorId,
-            @RequestParam LocalDateTime appointmentDate) {
-        return appointmentService.createAppointment(patientId, doctorId, appointmentDate);
+    public AppointmentDTO createAppointment(@RequestBody AppointmentDTO appointmentDTO) {
+        return appointmentService.createAppointment(appointmentDTO);
+    }
+
+    @GetMapping
+    public Page<AppointmentDTO> getAllAppointments(Pageable pageable) {
+        return appointmentService.getAllAppointments(pageable);
     }
 }
